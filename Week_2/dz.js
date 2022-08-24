@@ -66,3 +66,30 @@ for (let i=0; i<arr.length;i++){
 
 	console.log(arr[i].name);
 }
+
+// деструктуризация
+{
+	console.log(' ');
+	let input = 'Sasha Shlyapik';
+	let parts = input.split(' '); //метод split, в качестве разделителя пробел
+	console.log(parts);
+	let lastName = parts[1];
+	let Name = parts[0];
+	console.log(Name, lastName);
+	console.log(' ');
+    let [a,b] = [parts[0],parts[1]] // деструктурирующее присваивание
+    console.log(a,b);
+    console.log(' ');
+    [a,b] = parts;
+    console.log(a,b);
+    console.log(' ');
+    [Name, lastName] = input.split(' ');
+    console.log(Name, lastName);
+    function hi(userInfo) {
+	let [ lastname, name, ] = userInfo;
+	console.log(`Привет, ${name} ${lastname}, я тебя очень уважаю`);
+	}
+	input = 'Shlyapik Sasha Sergeevi4';
+	hi(input.split(' '));
+
+}
