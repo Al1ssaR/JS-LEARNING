@@ -156,3 +156,54 @@ for (let i=0; i<arr.length;i++){
 // • Итератор описывает, как нужно перебирать значения.
 // • Цикл for … in перебирает перечислимые свойства объекта.
 // • Цикл for … of перебирает всё, у чего есть итератор
+
+
+//Задание 1
+//ForEach - создать аналог метода (перебор массива + применение к каждому эл. функции)
+function forEach(array,fn){
+	for (let i = 0; i<array.length;i++){
+		fn(array[i],i,array);
+	}
+}
+
+//Задание 2
+//map - создать аналог метода (перебор массива + применение к каждому эл. функции + записывает значение в новый массив)
+function map(array,fn){
+	let modif = [];
+	for (let i=0;i<array.length;i++){
+		modif[i] = fn(array[i],i,array);
+	}
+	return modif;
+} 
+
+//Задание 3
+// reduce - создать аналог метода (перебор массива с сохранением предыдущего результата)
+function reduce(array,fn,initial){ //initial необязательная переменная , в нее записывается 1 промежуточный результат
+	//в противном случае это будет первый элемент массива
+	let hasInitial = typeof initial !== 'undefined';
+	let prev = hasInitial ? initial : array[0];
+	for (let i = hasInitial ? 0:1;i<array.length;i++){ // если есть initial то начинаем с 0 элемента массива , если нет 
+		prev = fn(prev,array[i],array);
+	}
+	return prev;
+}
+
+//Задание 4
+// перебрать все свойства объекта + заглавные буквы + записать все в массив
+function uppArr(obj){
+	let arr = [];
+	for (let name in obj){
+		arr.push(name.toUpperCase()); //toUpperCase - преобразование строки в заглавные буквы
+	}
+	return arr;
+}
+// чуть более элегантное решение
+function upperArr(obj){
+	return Object.keys(obj).map(name=>name.toUpperCase()) // возвращает массив, содержащий имена всех свойств объекта.
+}
+
+//Задание 5
+//Фунĸция принимает объеĸт и должна вернуть Proxy для этого объеĸта
+//Proxy должен перехватывать все попытĸи записи значений свойств и возводить
+//это значение в ĸвадрат (тяжелая тяжесть как это сделать >.<)
+
