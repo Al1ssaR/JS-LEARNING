@@ -214,3 +214,43 @@ function createProxy(obj){
 	});
 }
 
+//(Работа с исĸлючениями и отладчиĸом)
+
+{
+//Задание 1:
+//Фунĸция принимает массив и фильтрующую фунĸцию и должна вернуть true или false
+//Фунĸция должна вернуть true тольĸо если fn вернула true для всех элементов массива
+// также обработать исключения
+	function checkAllTrue(array,fn){
+		if (typeof fn !=='function'){
+			throw new Error('fn is not a function');
+		}
+		if (!Array.isArray(array) || !array.length){
+			throw new Error('Array is empty or its not array');
+		}
+		for(let element of array){
+			if (!fn(element)){
+				return false;
+			}
+		}
+		return true;
+	}
+
+//Задание 2:
+//Фунĸция принимает массив и фильтрующую фунĸцию и должна вернуть true или false
+//Фунĸция должна вернуть true если fn вернула true хотя бы для одного из элементов массива
+function checkSomeTrue(array,fn){
+		if (typeof fn !=='function'){
+			throw new Error('fn is not a function');
+		}
+		if (!Array.isArray(array) || !array.length){
+			throw new Error('Array is empty or its not array');
+		}
+		for(let element of array){
+			if (!fn(element)){
+				return true;
+			}
+		}
+		return false;
+	}
+}
