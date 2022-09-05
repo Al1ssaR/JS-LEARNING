@@ -254,3 +254,70 @@ function checkSomeTrue(array,fn){
 		return false;
 	}
 }
+
+//Задание 3:
+//Фунĸция принимает заранее неизвестное ĸоличество аргументов, первым из ĸоторых является фунĸция fn
+//Фунĸция должна поочередно запустить fn для ĸаждого переданного аргумента
+//(ĸроме самой fn)
+//Фунĸция должна вернуть массив аргументов, для ĸоторых fn выбросила исĸлючение
+
+function checkErr(fn, ...args){
+	if (typeof fn !== 'function'){
+		throw new Error('fn is not a function');
+	}
+	let uskl=[];
+	for(let arg of args){
+		try{
+			fn(arg);
+		}catch{
+			uskl.push(arg);
+		}
+	}
+	return uskl;
+}
+
+/*Задание 4:
+ Написать функцию , которая принимает число на вход ( по умолчанию 0),
+ и возвращает функции калькулятора (сложение вычитание деление умножение)
+*/
+function calculate(number = 0){
+	if (!Number.isFinite(number)){
+		throw new Error('number is not a number');
+	}
+	return{
+		sum(...args){ // сумма
+			let result = number;
+			for (let arg of args){
+				result+=arg;
+			}
+			return result;
+		},
+		dif(...args){ // вычитание
+			let result = number;
+			for (let arg of args){
+				result-=arg;
+			}
+			return result;
+		},
+		del(...args){ // деление
+			let result = number;
+			for (let arg of args){
+				if (arg === 0){
+					throw new Error('Delenue na 0')
+				}
+				result/=arg;
+			}
+			return result;
+		},
+		mult(...args){ // умножение
+			let result = number;
+			for (let arg of args){
+				result*=arg;
+			}
+			return result;
+		},
+	};
+}
+console.log('Task 4 check');
+// let res = calculate(10);
+console.log(calculate(10).dif(21));
