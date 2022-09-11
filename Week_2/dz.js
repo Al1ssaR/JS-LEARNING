@@ -321,3 +321,27 @@ function calculate(number = 0){
 console.log('Task 4 check');
 // let res = calculate(10);
 console.log(calculate(10).dif(21));
+console.log ("Структуры и алгоримты (задание на паре)");
+{
+	let tovarname = ['Картофель','Морковь','Рис'];
+	let tovarprice = [10, 100, 1000];
+	let count=[0,0,0];
+	for (let i = 0; i<3;i++){
+		for(let j=0; j<3;j++){
+			if (tovarprice[i] > tovarprice[j]){
+				count[i]++;
+			}
+		}
+	}
+	for (let i=0; i<3;i++){
+		let tovarcheck;
+		if (count[i]<2 ){tovarcheck = "другой товар"}
+			else tovarcheck = "других товара"
+		if (count[i]===0){
+			console.log(`${tovarname[i]} самый дешевый (товаров дешевле нет)`);
+		}
+		else
+		 console.log(`${tovarname[i]} дешевле чем ${count[i]} ${tovarcheck}`)
+	}
+
+}
