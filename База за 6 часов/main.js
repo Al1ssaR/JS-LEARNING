@@ -14,3 +14,23 @@ function CreateMemb(name){
 let SanyaAction=CreateMemb('Sanya')
 SanyaAction(1337)
 SanyaAction(228)
+
+let people=[
+    {
+        name:'Алиссар Баликов',
+        budget:50000,
+    },
+    {
+        name:'Саша Шляпик',
+        budget:30000,
+    },
+    {
+        name:'Илья Фокинский',
+        budget:15000,
+    }
+]
+let allBudget = people.filter(people=>people.budget>20000).reduce((summ,person)=>{
+    summ+=person.budget
+    return summ
+},0)
+console.log(`Общий бюджет: ${allBudget} рублей`)
