@@ -23,22 +23,51 @@ let stud = [{
     marks:[5,5,5,5,5],
     N:123231,
 },]
-
-function SortbyMarks(stud){
+// console.log(stud)
+// function SortbyMarks1(stud){
+//     let summ=Array(stud.length).fill(0)
+//     for(let i=0;i<stud.length;i++) {
+//        summ[i]=stud[i].marks.reduce((count,person)=>{
+//             count+=person
+//             return count
+//         },0)
+//     }
+//     console.log(summ)
+//     const sortedStud = stud.map((item, index)=> {
+//        item.summ = summ[index]
+//        return item
+//       });
+//       sortedStud.sort(( a, b ) =>  b.summ - a.summ );
+//     console.log(sortedStud)
+// }
+function SortbyMarks2(stud){
     let summ=Array(stud.length).fill(0)
-    for(let i=0;i<stud.length;i++) {
+    let lastPosition
+    let sortedStud = []
+    let sortedSumm = new Array()
+    for (let i= 0;i<stud.length;i++){
        summ[i]=stud[i].marks.reduce((count,person)=>{
             count+=person
             return count
         },0)
+        if (summ[i] < (5*stud.length) && summ[i] > (3*stud.length)){
+            sortedStud.push(stud[i]) 
+        }
     }
-    console.log(summ)
-    stud.forEach((item, index, array)=> {
-        stud[index].summ = summ[index]
-      });
-      console.log(stud)
-    stud.sort(( a, b ) =>  b.summ - a.summ );
-    console.log(stud)
+    
+    for (let i= 0;i<stud.length;i++){
+        if (summ[i] === (5*stud.length)){
+            sortedStud.unshift(stud[i]) 
+        }
+        if (summ[i] === (3*stud.length)){
+            sortedStud.push(stud[i]) 
+        }
+    }
+    console.log(sortedStud)
 }
-SortbyMarks(stud)
+// setTimeout(SortbyMarks1,0,stud)
+
+SortbyMarks2(stud)
+
+
 
