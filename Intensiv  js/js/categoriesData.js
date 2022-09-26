@@ -74,7 +74,7 @@ const categoriesData = () => {
                 <div class="product__sidebar__view__item set-bg mix month week" data-setbg="${item.image}">
                     <div class="ep">${item.rating} / 10</div>
                     <div class="view"><i class="fa fa-eye"></i> ${item.views} </div>
-                    <h5><a href="/anime-details.html">${item.title}</a></h5>
+                    <h5><a href="./anime-details.html?ItemId=${item.id}">${item.title}</a></h5>
                 </div>
                 `)
             })
@@ -97,8 +97,10 @@ const categoriesData = () => {
             renderTopAnime(data.sort((a,b) => b.views - a.views).slice(0,5))
             if (ganreParams){
                 renderAnimeList(data, [ganreParams])
+                preloader()
             } else {
                 renderAnimeList(data, ganres)
+                preloader()
             }
             renderGanreList(ganres)
         })
