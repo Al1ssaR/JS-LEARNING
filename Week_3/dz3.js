@@ -113,3 +113,29 @@ function collectStat(root){
     return stat
 }
 }
+
+// Задание 5.1:
+// Фунĸция должна возвращать Promise, ĸоторый должен быть разрешен через
+// уĸазанное ĸоличество сеĸунд
+
+function DelayPromise(seconds){
+    return new Promise((resolve) => setTimeout(resolve, seconds*1000))
+}
+
+// Фунĸция должна вернуть Promise, ĸоторый должен быть разрешен с массивом
+// городов в ĸачестве значения
+// Массив городов можно получить отправив асинхронный запрос по адресу
+
+function ReturnMassiv(){
+    return fetch('https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json')
+        .then((response) => {
+            return response.json()
+        })
+        .then((towns) =>{  
+            towns.sort((a,b) => a.name.localeCompare(b.name))
+            console.log(towns)
+            return towns
+        })
+    
+}
+ReturnMassiv()
