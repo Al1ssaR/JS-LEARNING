@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+  }
+p{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #FFF5EE;
+}
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.wishes{
+    display: flex;
+    align-items: flex-end;
+}
+.wish-wrap{
+    margin-top: 100px;
+    min-height: 611px;
+    display: flex;
+    position: relative;
+    background: linear-gradient(118.38deg, #29323C -4.6%, #485563 200.44%);
+    box-shadow: 0 0 20px #d22730, 0 0 10px #d22730;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.dialog{
+    margin-top: 45px;
+    margin-left: 45px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 300px;
+    max-width: 475px;
+    border: solid #D22730 2px;
+    border-radius: 30%;
+    box-shadow: 0 0 2px #D22730, 0 0 10px #D22730;
+    
+}
+.dialog__mes{
+    font-size: 28px;
+    color: #FFFAF0;
+    margin: 0 auto;
+    margin-top: -10px;
+    width: 320px;
+}
+.dialog-wrap__btn{
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 80px;
+    text-decoration: none;
+    display: block;
+    padding: 30px 140px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #D22730 inset, 0 0 0 0 #D22730;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+}
+.dialog-wrap__btn:hover {
+    box-shadow: 0 0 10px 0 #D22730 inset, 0 0 10px 4px #D22730;
+    color: #D22730;
+}
+
+.wish-wrap__girl{
+    position: relative;
+    display: block;
+    max-width: 590px;
+    max-height: 100vh;
+}
