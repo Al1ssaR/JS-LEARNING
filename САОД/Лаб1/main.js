@@ -10,7 +10,7 @@ console.log(arr2Filtered)
 
 //Способ 2
 function checkroot(number) {
-    for (var i = 0; i * i <= number; i++) {
+    for (let i = 0; i * i <= number; i++) {
         if (i * i === number)
             return false;
    }
@@ -20,55 +20,23 @@ let arr3Filtered = arr1.filter(item => checkroot(item))
 console.log(arr3Filtered)
 let arr4Filtered = arr2.filter(item => checkroot(item))
 console.log(arr4Filtered)
-// let m=5
-// let arr= [10, 15, 16, 12, 25, 9, 7, 35, 13]
-// let arrCopy = [] ;
-// for (let i = 0; i < arr.length; i++){
-//     if (arr[i]%2 == 1 && arr[i]%m == 0){
-//         arrCopy.push(arr[i])
-//     }
-// }
-// for(let i = 0; i < arrCopy.length; i++){
-//     for (let j = 0; j < arrCopy.length-1;j++){
-//         if (arrCopy[i] > arrCopy[i + 1]) {
-//             let temp = arrCopy[i];
-//             arrCopy[i] = arrCopy[i + 1];
-//             arrCopy[i + 1] = temp;
-//         }
-//     }
-// }
-// let arrLengthCheck = arrCopy.length
-// console.log(arrLengthCheck)
-// for (let i = 0; i < arr.length; i++){
-//     if (arr[i]%2 == 1 && arr[i]%m !== 0){
-//         arrCopy.push(arr[i])
-//     }
-// }
+//Способ 3 
+function sqrtGreat(x){
+    var lo=0,hi=x,mid;
+    while(lo<=hi){
+        mid=Math.ceil((lo+hi)/2)
+        if(mid*mid==x) return mid;
+        if(mid*mid<x){
+            lo=mid+1
+        }else{
+            hi=mid-1;
+        }
+    }
 
-// for(let i = arrLengthCheck; i < arrCopy.length; i++){
-//     for (let j = arrLengthCheck; j < arrCopy.length-1;j++){
-//         if (arrCopy[i] > arrCopy[i + 1]) {
-//             temp = arrCopy[i];
-//             arrCopy[i] = arrCopy[i + 1];
-//             arrCopy[i + 1] = temp;
-//         }
-//     }
-// }
-// console.log(arrCopy)
+    
+}
 
-// arrLengthCheck = arrCopy.length
-// for (let i = 0; i < arr.length; i++){
-//     if (arr[i]%2 == 0){
-//         arrCopy.push(arr[i])
-//     }
-// }
-// for(let i = arrLengthCheck; i < arrCopy.length; i++){
-//     for (let j = arrLengthCheck; j < arrCopy.length-1;j++){
-//         if (arrCopy[i] > arrCopy[i + 1]) {
-//             let temp = arrCopy[i];
-//             arrCopy[i] = arrCopy[i + 1];
-//             arrCopy[i + 1] = temp;
-//         }
-//     }
-// }
-// console.log(arrCopy)
+let arr5Filtered = arr1.filter(item => !(Number.isInteger(sqrtGreat(item))))
+console.log(arr5Filtered)
+let arr6Filtered = arr2.filter(item => !(Number.isInteger(sqrtGreat(item))))
+console.log(arr6Filtered)
